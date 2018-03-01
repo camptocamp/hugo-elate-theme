@@ -470,5 +470,14 @@
 
 	});
 
+	// Copy code on click
+	$.fn.selection = function(elem) {
+		var elem = document.querySelector(elem);
+		var select = window.getSelection();
+		var range = document.createRange();
 
+		range.selectNodeContents(elem);
+		select.addRange(range);
+		document.execCommand("copy")
+	}
 }());
